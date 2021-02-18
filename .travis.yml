@@ -1,5 +1,8 @@
 language: php
-script: false
+script:
+  - echo 1;
+install:
+  - composer install
 deploy:
   provider: heroku
   api_key:
