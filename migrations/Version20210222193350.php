@@ -12,9 +12,9 @@ final class Version20210222193350 extends AbstractMigration
     {
         $sql = <<<SQL
 CREATE TABLE IF NOT EXISTS events (
-    id INT(11) AUTO_INCREMENT,
+    id INTEGER AUTO_INCREMENT,
     name VARCHAR(100) NOT NULL,
-    user_id INT(11) NOT NULL,
+    user_id INTEGER NOT NULL,
     created_at TIMESTAMP NOT NULL,
     PRIMARY KEY (id)
 )
