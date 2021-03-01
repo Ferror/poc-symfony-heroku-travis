@@ -12,11 +12,10 @@ final class Version20210222193350 extends AbstractMigration
     {
         $sql = <<<SQL
 CREATE TABLE IF NOT EXISTS events (
-    id INTEGER AUTO_INCREMENT,
+    id SERIAL PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
     user_id INTEGER NOT NULL,
-    created_at TIMESTAMP NOT NULL,
-    PRIMARY KEY (id)
+    created_at TIMESTAMP NOT NULL
 )
 SQL;
         $this->connection->executeStatement($sql);
