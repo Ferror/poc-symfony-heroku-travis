@@ -6,16 +6,15 @@ namespace DoctrineMigrations;
 use Doctrine\DBAL\Schema\Schema;
 use Doctrine\Migrations\AbstractMigration;
 
-final class Version20210222193350 extends AbstractMigration
+final class Version20210310140228 extends AbstractMigration
 {
     public function up(Schema $schema): void
     {
         $sql = <<<SQL
-CREATE TABLE IF NOT EXISTS events (
+CREATE TABLE IF NOT EXISTS stats_messenger (
     id SERIAL PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
-    user_id INTEGER NOT NULL,
-    created_at TIMESTAMP NOT NULL
+    date DATE,
+    count INTEGER
 );
 SQL;
         $this->connection->executeStatement($sql);
@@ -24,7 +23,7 @@ SQL;
     public function down(Schema $schema): void
     {
         $sql = <<<SQL
-DROP TABLE IF EXISTS events;
+DROP TABLE IF EXISTS stats_messenger;
 SQL;
         $this->connection->executeStatement($sql);
     }
