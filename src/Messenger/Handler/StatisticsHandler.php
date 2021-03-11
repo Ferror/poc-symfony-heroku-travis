@@ -22,7 +22,7 @@ final class StatisticsHandler implements MessageHandlerInterface
     public function __invoke(Statistics $message)
     {
         $result = $this->connection->executeStatement(
-            'UPDATE stats_messenger SET count = count + 1 WHERE ?',
+            'UPDATE stats_messenger SET count = count + 1 WHERE date = ?',
             [date('Y-m-d')]
         );
 
