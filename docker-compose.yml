@@ -27,6 +27,19 @@ services:
         networks:
             - ferror
 
+    postgres:
+        image: postgres:13-alpine
+        environment:
+            POSTGRES_PASSWORD: 1234
+        volumes:
+            - ./database/postgres:/docker-entrypoint-initdb.d:delegated
+        ports:
+            - "5432:5432"
+        depends_on:
+            - traefik
+        networks:
+            - ferror
+
 networks:
     ferror:
         name: ferror
